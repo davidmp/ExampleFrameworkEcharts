@@ -41,7 +41,32 @@ Step 5: Run your project with a content server, preferably Tomcat version 9 onwa
 Example of Projects with the EchartsTag Framework
 
 ##### EchartsTag con Proyectos de Tipo Maven Servlets
-Estructura de proyecto
+Project structure
+
 ![](pprincipal-servlet-estructura.png)
-Resultados
+
+Results
+
 ![](pprincipal-servlet.png)
+
+##### EchartsTag with Maven Spring Boot Projects
+Project structure
+
+![](pprincipal-spring-estructura.png)
+
+Results
+
+![](pprincipal-spring.png)
+
+##### EchartsTag con Proyectos de Tipo Maven JSP puro
+Project structure
+
+![](pprincipal-jsp-estructura.png)
+
+Results
+
+![](pprincipal-jsp1.png)
+
+![](pprincipal-jsp2.png)
+
+![](pprincipal-jsp3.png)
