@@ -1,5 +1,5 @@
 # EchartsTag
-It is a Project of Echarts for Java
+EchartsTag is a graphics project for Java, it is still in development, for any suggestion or improvement contribution you can write to me by email (mamanipari@gmail.com) or WhatsApp (951782520), I am from Peru and my official language is Spanish.
 
 ![](LogoEchartsTag.png)
 
