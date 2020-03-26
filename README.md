@@ -3,9 +3,6 @@ It is a Project of Echarts for Java
 
 ![](LogoEchartsTag.png)
 
-# ExampleFrameworkEcharts
-Example of Projects with the EchartsTag Framework
-
 ## Steps to create a project
 
 Step 1: To test you can create any Maven type project in Java (for example with the name of: EchartsJsp)
@@ -40,5 +37,11 @@ Step 5: Run your project with a content server, preferably Tomcat version 9 onwa
 
 ![](PaginaDocumentacion.png)
 
+# Example of Projects with EchartsTag
+Example of Projects with the EchartsTag Framework
 
-If you want some examples you can see them in the following Github repository [Examples of Echart Projects](https://github.com/davidmp/ExampleFrameworkEcharts)
+##### EchartsTag con Proyectos de Tipo Maven Servlets
+Estructura de proyecto
+![](pprincipal-servlet-estructura.png)
+Resultados
+![](pprincipal-servlet.png)
