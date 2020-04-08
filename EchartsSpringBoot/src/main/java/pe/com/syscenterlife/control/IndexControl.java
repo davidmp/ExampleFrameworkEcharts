@@ -42,8 +42,8 @@ public class IndexControl {
             String[] ejeDataX={"Categoría0","Categoría1","Categoría2","Categoría3","Categoría4","Categoría5","Categoría6",
                                 "Categoría7","Categoría8","Categoría9"};            
             String[] ejeNameXY={"Eje X","Eje Y"};           
-            String[] seriesMarkPointMinMax ={"yes","no","no","yes"};
-            String[] seriesMarkLineMedia ={"yes","no","no","yes"};            
+            boolean[] seriesMarkPointMinMax ={false,false,false,false};
+            boolean[] seriesMarkLineMedia ={false,false,false,false};              
             String[] seriesStackName ={"one","one","two","two"};            
             String echartsOriented="horizontal";/*vertical,horizontal*/
       

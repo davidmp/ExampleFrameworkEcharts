@@ -39,7 +39,7 @@ public class IndexControl extends HttpServlet {
         
         switch (opc) {           
                 case 0:{
-                            String chartTitle="Soy un histograma";
+                    String chartTitle="Soy un histograma";
 
                     double[] dataValues1={1.33,4.94,4.48,2.44,3.37,1.61,2.58,1.99,0.57,4.89};
                     double[] dataValues2={-0.08,-0.22,-0.82,-0.51,-0.18,-0.54,-0.62,-0.61,-0.44,-0.58};
@@ -56,8 +56,8 @@ public class IndexControl extends HttpServlet {
                     String[] ejeDataX={"Categoría0","Categoría1","Categoría2","Categoría3","Categoría4","Categoría5","Categoría6",
                                         "Categoría7","Categoría8","Categoría9"};            
                     String[] ejeNameXY={"Eje X","Eje Y"};           
-                    String[] seriesMarkPointMinMax ={"yes","no","no","yes"};
-                    String[] seriesMarkLineMedia ={"yes","no","no","yes"};            
+                    boolean[] seriesMarkPointMinMax ={false,false,false,false};
+                    boolean[] seriesMarkLineMedia ={false,false,false,false};            
                     String[] seriesStackName ={"one","one","two","two"};            
                     String echartsOriented="horizontal";/*vertical,horizontal*/
 

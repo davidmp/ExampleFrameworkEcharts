@@ -59,8 +59,8 @@
             String[] legendDataName= (String[])request.getSession().getAttribute("legendDataName");
             String[] ejeDataX= (String[])request.getSession().getAttribute("ejeDataX");
             String[] ejeNameXY= (String[])request.getSession().getAttribute("ejeNameXY");
-            String[] seriesMarkPointMinMax= (String[])request.getSession().getAttribute("seriesMarkPointMinMax");
-            String[] seriesMarkLineMedia= (String[])request.getSession().getAttribute("seriesMarkLineMedia");
+            boolean[] seriesMarkPointMinMax= (boolean[])request.getSession().getAttribute("seriesMarkPointMinMax");
+            boolean[] seriesMarkLineMedia= (boolean[])request.getSession().getAttribute("seriesMarkLineMedia");
             String[] seriesStackName= (String[])request.getSession().getAttribute("seriesStackName");
             String echartsOriented= request.getSession().getAttribute("echartsOriented").toString();
         %>
