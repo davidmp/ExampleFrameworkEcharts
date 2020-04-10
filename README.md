@@ -5,9 +5,18 @@ EchartsTag is a graphics project for Java, it is still in development, for any s
 
 ## Steps to create a project
 
-Step 1: To test you can create any Maven type project in Java (for example with the name of: EchartsJsp)
+Step 1: Development environment
+1.- It works from Java v1.8 onwards
+[Download Java / OpenJDK](https://jdk.java.net/14/)
+2.- The most suitable development IDE is Apache NetBeans
+[Download Apache NetBeans](https://netbeans.apache.org/)
+3.- The most suitable server is Apache Tomcat v8 onwards
+[Download Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi)
 
-Step 2: Inside the pom.xml file put the following code that refers to the repository from where the library will be downloaded.
+
+Step 2: To test you can create any Maven type project in Java (for example with the name of: EchartsJsp)
+
+Step 3: Inside the pom.xml file put the following code that refers to the repository from where the library will be downloaded.
 #### pom.xml
 ```xml
     <repositories>
@@ -17,7 +26,7 @@ Step 2: Inside the pom.xml file put the following code that refers to the reposi
             </repository>
     </repositories>
 ```
-Step 3: Then Add the following dependency.
+Step 4: Then Add the following dependency.
 
 ```xml
 	<dependency>
@@ -26,14 +35,14 @@ Step 3: Then Add the following dependency.
 	    <version>1.4</version>
 	</dependency>
 ```
-Step 4: Inside the Java Resources folder create a properties file with the following name syscenterlife.properties and inside it place the following content:
+Step 5: Inside the Java Resources folder create a properties file with the following name syscenterlife.properties and inside it place the following content:
 #### syscenterlife.properties
 ```properties
 echarts.theme.name=default
 echarts.lang.name=es
 ```
 
-Step 5: Run your project with a content server, preferably Tomcat version 9 onwards and place in your browser http://localhost:8080/EchartsJsp/echartsdoc.jsp and the documentation on how to use it will appear.
+Step 6: Run your project with a content server, preferably Tomcat version 9 onwards and place in your browser http://localhost:8080/EchartsJsp/echartsdoc.jsp and the documentation on how to use it will appear.
 
 ![](PaginaDocumentacion.png)
 
