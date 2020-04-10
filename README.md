@@ -44,6 +44,9 @@ Step 5: Inside the Java Resources folder create a properties file with the follo
 echarts.theme.name=default
 echarts.lang.name=es
 ```
+Language Support: es = Spanish, en = English
+
+Style Support (Themes): azul, bee-inspired, blue, caravan, carp, cool, dark-blue, dark-bold, dark-digerati, dark-fresh-cut, dark-mushroom, dark, eduardo, forest, fresh-cut, fruit, gray, green, helianthus, infographic, inspired, jazz, london, macarons, macarons2, mint, red-velvet, red, roma, royal, sakura, shine, tech-blue, vintage
 
 Step 6: Run your project with a content server, preferably Tomcat version 9 onwards and place in your browser http://localhost:8080/EchartsJsp/echartsdoc.jsp and the documentation on how to use it will appear.
 
