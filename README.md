@@ -6,10 +6,13 @@ EchartsTag is a graphics project for Java, it is still in development, for any s
 ## Steps to create a project
 
 Step 1: Development environment
+
 1.- It works from Java v1.8 onwards
 [Download Java / OpenJDK](https://jdk.java.net/14/)
+
 2.- The most suitable development IDE is Apache NetBeans
 [Download Apache NetBeans](https://netbeans.apache.org/)
+
 3.- The most suitable server is Apache Tomcat v8 onwards
 [Download Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi)
 
