@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
+import org.springframework.web.bind.annotation.GetMapping;
 /**
  *
  * @author davidmp
@@ -23,7 +24,7 @@ import org.json.JSONArray;
 public class IndexControl {    
     protected final Log logger = LogFactory.getLog(getClass());
         
-    @RequestMapping(value = {"/bar" }, method = RequestMethod.GET)    
+    @RequestMapping(value = "/bar", method = RequestMethod.GET)    
     public ModelAndView inicio(){             
             String chartTitle="Soy un histograma";
                        
@@ -62,7 +63,8 @@ public class IndexControl {
         return new ModelAndView("bar", model);
     }    
     
-    @RequestMapping(value = {"/" }, method = RequestMethod.GET)    
+    //@RequestMapping(value = {"/" }, method = RequestMethod.GET) 
+    @GetMapping(value = "/")
     public ModelAndView inicioBloxplot(){               
     Object[] dependencyNames={"Boxplot"};
     

@@ -23,9 +23,10 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 //public class WebAppConfig implements WebMvcConfigurer
+
 @Configuration
-@ComponentScan("pe.com.syscenterlife")
 @EnableWebMvc
+@ComponentScan(basePackages = { "pe.com.syscenterlife.control" })
 public class WebAppConfig implements WebMvcConfigurer{
  
 

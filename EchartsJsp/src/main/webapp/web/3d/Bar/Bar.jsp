@@ -3,6 +3,7 @@
     Created on : Mar 11, 2020, 4:05:19 AM
     Author     : davidmp
 --%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -51,18 +52,31 @@
 
                  
             String urlx = request.getContextPath();
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection con = null;
-            String sURL = "jdbc:mysql://localhost:3306/echerts";
-            con = DriverManager.getConnection(sURL,"root","");
+      
                      
-            LinkedHashMap<String, Object> hmx = new LinkedHashMap<>();
+            LinkedHashMap<String, Object> hmx = new LinkedHashMap();
 
-            ArrayList<Object> arrayListG = new ArrayList<>();
+            ArrayList<Object> arrayListG = new ArrayList();
             //String dataValues="";
             Object[] dataXYZ;  
-        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM data")) {
-          ResultSet rs = stmt.executeQuery();           
+        try {
+            System.out.println("Ver!!!");
+            
+            //Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = null;
+            String sURL = "jdbc:mysql://localhost:3306/echartstag";
+            con = DriverManager.getConnection(sURL,"root","");
+            if(con!=null){
+            System.out.println("SI conecta!!!");
+            }else{
+            System.out.println("No conecta!!!");
+            }
+            Statement stmt=con.createStatement();
+          //PreparedStatement stmt = con.prepareStatement();
+          ResultSet rs = stmt.executeQuery("SELECT * FROM data3;");           
+          
+          System.err.println("data:"+rs.getRow());
             while (rs.next()){
             dataXYZ=new Object[3];            
             dataXYZ[0]=rs.getInt("hora");
