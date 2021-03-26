@@ -15,12 +15,12 @@
     <meta name="author" content="">
 
     <!-- Bootstrap core CSS -->
-    <link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/webdocument/echarts/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="<%=request.getContextPath()%>/resources/css/navbar-top-fixed.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/css/guide.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/css/prettify.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/webdocument/echarts/css/navbar-top-fixed.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/webdocument/echarts/css/guide.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/webdocument/echarts/css/prettify.css" rel="stylesheet">
     <echar:echartHeaderScript    /> 
     
   </head>
@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light" style="background-color: #e3f2fd;">
       
 	  <a class="navbar-brand" href="#" id="logo-focus" >
-        <img alt="Spring" class="block" id="springlogo" src="<%=request.getContextPath()%>/resources/img/LogoEchartsTag2.png" />
+        <img alt="Spring" class="block" id="springlogo" src="<%=request.getContextPath()%>/webdocument/echarts/img/LogoEchartsTag2.png" />
       </a>
       
         <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,10 +66,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<%=request.getContextPath()%>/resources/js/jquery-3.2.1.slim.min.js" ></script>
-    <script src="<%=request.getContextPath()%>/resources/js/popper.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/run_prettify.js"></script>
+    <script src="<%=request.getContextPath()%>/webdocument/echarts/js/jquery-3.2.1.slim.min.js" ></script>
+    <script src="<%=request.getContextPath()%>/webdocument/echarts/js/popper.min.js"></script>
+    <script src="<%=request.getContextPath()%>/webdocument/echarts/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/webdocument/echarts/js/run_prettify.js"></script>
   
 
 </body></html>
