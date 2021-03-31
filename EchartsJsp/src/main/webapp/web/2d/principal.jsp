@@ -57,6 +57,7 @@
     <div class="content">
         <h3>Bienvenidos a EchartsTag de 2 Dimensiones</h3>
         <a type="button" class="btn btn-outline-warning btn-lg btn-block" id="2DBar" href="Bar/Bar.jsp" >Bar</a>
+        <a type="button" class="btn btn-outline-warning btn-lg btn-block" id="2DBar" href="Bar/Bar2.jsp" >Bar2</a>
         <a type="button" class="btn btn-outline-warning btn-lg btn-block" id="2DBarSimple" href="Bar/BarSimple.jsp" >Bar Simple</a>
         <a type="button" class="btn btn-outline-info btn-lg btn-block" id="2DBoxplot" href="Boxplot/Boxplot.jsp" >Boxplot</a>
         <a type="button" class="btn btn-outline-warning btn-lg btn-block" id="2DFunnel" href="Funnel/Funnel.jsp" >Funnel</a>

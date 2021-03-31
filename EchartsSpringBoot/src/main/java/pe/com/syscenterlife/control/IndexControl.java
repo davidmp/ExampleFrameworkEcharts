@@ -7,6 +7,7 @@ package pe.com.syscenterlife.control;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,17 +16,26 @@ import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import pe.com.syscenterlife.modelo.IViewData2;
+import pe.com.syscenterlife.modelo.Data2;
+import pe.com.syscenterlife.service.Data1Service;
+import pe.com.syscenterlife.service.Data2Service;
 /**
  *
  * @author davidmp
  */
 @Controller
 public class IndexControl {    
+    @Autowired
+    Data1Service data1Service;
+    @Autowired
+    Data2Service data2Service;
     protected final Log logger = LogFactory.getLog(getClass());
         
     @RequestMapping(value = "/bar", method = RequestMethod.GET)    
-    public ModelAndView inicio(){             
+    public ModelAndView inicio(){           
             String chartTitle="Soy un histograma";
                        
             double[] dataValues1={1.33,4.94,4.48,2.44,3.37,1.61,2.58,1.99,0.57,4.89};
@@ -147,4 +157,95 @@ public class IndexControl {
         model.put("saludo", "Hola mundo");        
         return new ModelAndView("demo", model);
     }    
+    
+    @RequestMapping(value = {"/pru" }, method = RequestMethod.GET)    
+    public ModelAndView inicioPrueba(){
+     
+        Map<String,Object> model=new HashMap<>();
+        List<Data2> lista=data2Service.ingresoTuristas();
+        int tamano=lista.size()/4;
+        double[] dataValues1=new double[tamano];        
+        double[] dataValues2=new double[tamano];        
+        double[] dataValues3=new double[tamano];        
+        double[] dataValues4=new double[tamano];        
+        int[] contador={0,0,0,0};
+        String[] legendDataName=new String[contador.length];
+        String[] ejeDataX=new String[tamano];
+        
+        for (Data2 data2 : lista) {
+            switch(data2.getAnho()){
+                case "2019" : { dataValues1[contador[0]]=data2.getCantidad();  ejeDataX[contador[0]]=data2.getZona();  legendDataName[0]=data2.getAnho(); contador[0]=contador[0]+1; }; break;
+                case "2018" : { dataValues2[contador[1]]=data2.getCantidad(); legendDataName[1]=data2.getAnho(); contador[1]=contador[1]+1; }; break;
+                case "2017" : { dataValues3[contador[2]]=data2.getCantidad();  legendDataName[2]=data2.getAnho(); contador[2]=contador[2]+1;}; break;
+                case "2016" : { dataValues4[contador[3]]=data2.getCantidad();  legendDataName[3]=data2.getAnho(); contador[3]=contador[3]+1;};break;         
+                default:{};break;
+            }
+        }
+        Object[] dataValues={dataValues1,dataValues2,dataValues3,dataValues4};         
+        String[] ejeNameXY={"Eje X","Eje Y"};           
+        boolean[] seriesMarkPointMinMax ={false,false,false,false};
+        boolean[] seriesMarkLineMedia ={false,false,false,false};              
+        String[] seriesStackName ={"one","two","tre","for"};            
+        String echartsOriented="horizontal";/*vertical,horizontal*/        
+        String chartTitle="Afluencia de Turistas por Zonas";
+        model.put("saludo", "Hola mundo");
+        model.put("chartTitle", chartTitle);
+        model.put("dataValues", dataValues);
+        model.put("legendDataName", legendDataName);
+        model.put("ejeDataX", ejeDataX);
+        model.put("ejeNameXY", ejeNameXY);
+        model.put("seriesMarkPointMinMax", seriesMarkPointMinMax);
+        model.put("seriesMarkLineMedia", seriesMarkLineMedia);
+        model.put("seriesStackName", seriesStackName);
+        model.put("echartsOriented", echartsOriented);     
+        return new ModelAndView("prueba", model);
+    }     
+    @RequestMapping(value = {"/pru2" }, method = RequestMethod.GET)    
+    public ModelAndView inicioPrueba2(){
+     
+        Map<String,Object> model=new HashMap<>();
+        List<IViewData2> lista=data2Service.ingresoTuristas2();
+        int tamano=lista.size();
+        System.out.println("VER:"+tamano);
+        double[] dataValues1=new double[tamano];        
+        double[] dataValues2=new double[tamano];        
+        double[] dataValues3=new double[tamano];        
+        double[] dataValues4=new double[tamano];        
+        int contador=0, contAnho=0;
+        String[] legendDataName=new String[4];
+        String[] ejeDataX=new String[tamano];
+        
+        for (IViewData2 data2 : lista) {
+            if(contador==0){
+                legendDataName[contAnho++]=data2.getAnho(); 
+                legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data2.getAnho())-1); 
+                legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data2.getAnho())-2); 
+                legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data2.getAnho())-3); 
+            }
+         dataValues1[contador]=data2.getCantidad();           
+         dataValues2[contador]=data2.getCantidad2();          
+         dataValues3[contador]=data2.getCantidad3();           
+         dataValues4[contador]=data2.getCantidad4();           
+         ejeDataX[contador]=data2.getZona();         
+         contador=contador+1; 
+        }
+        Object[] dataValues={dataValues1,dataValues2,dataValues3,dataValues4};         
+        String[] ejeNameXY={"Eje X","Eje Y"};           
+        boolean[] seriesMarkPointMinMax ={false,false,false,false};
+        boolean[] seriesMarkLineMedia ={false,false,false,false};              
+        String[] seriesStackName ={"one","two","tre","for"};            
+        String echartsOriented="horizontal";/*vertical,horizontal*/        
+        String chartTitle="Afluencia de Turistas por Zonas";
+        model.put("saludo", "Hola mundo");
+        model.put("chartTitle", chartTitle);
+        model.put("dataValues", dataValues);
+        model.put("legendDataName", legendDataName);
+        model.put("ejeDataX", ejeDataX);
+        model.put("ejeNameXY", ejeNameXY);
+        model.put("seriesMarkPointMinMax", seriesMarkPointMinMax);
+        model.put("seriesMarkLineMedia", seriesMarkLineMedia);
+        model.put("seriesStackName", seriesStackName);
+        model.put("echartsOriented", echartsOriented);     
+        return new ModelAndView("prueba", model);
+    }     
 }

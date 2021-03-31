@@ -51,6 +51,9 @@
           <li class="nav-item">
             <a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/IndexControl?opc=2">Funnel</a>
           </li>	  
+          <li class="nav-item">
+            <a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/IndexControl?opc=3">Prueba</a>
+          </li>	          
         </ul>
       </div>
     </nav>

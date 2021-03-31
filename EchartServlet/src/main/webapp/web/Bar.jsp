@@ -48,6 +48,9 @@
           <li class="nav-item">
             <a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/IndexControl?opc=2">Funnel</a>
           </li>	 
+          <li class="nav-item">
+            <a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/IndexControl?opc=3">Prueba</a>
+          </li>	 
         </ul>
       </div>
     </nav>
@@ -66,7 +69,7 @@
         %>
         <div class="content">
             <echar:echartBarHistogram chartTitle="<%=chartTitle%>" dataValues="<%=dataValues%>" ejeDataX="<%=ejeDataX%>"
-                                      idCharts="main" legendDataName="<%=legendDataName%>"/>
+            idCharts="main" legendDataName="<%=legendDataName%>" seriesStackName="<%=seriesStackName%>"/>
             <echar:echartBarHistogram chartTitle="<%=chartTitle%>" dataValues="<%=dataValues%>" ejeDataX="<%=ejeDataX%>"
             idCharts="main1" legendDataName="<%=legendDataName%>" echartsOriented="vertical"/>     
         </div>

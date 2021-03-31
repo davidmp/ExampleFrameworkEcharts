@@ -7,12 +7,16 @@ package pe.com.syscenterlife.control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
+import pe.com.syscenterlife.dao.ReportDataDao;
 
 
 /**
@@ -108,38 +112,88 @@ public class IndexControl extends HttpServlet {
                 
                 }break;
                 case 2:{
-                Object[][] dataValuesX={
-                        {"Access",60,30},
-                        {"Consultation",40,10},
-                        {"Order",20,5},
-                        {"Click",80,50},
-                        {"Display",100,80},
-                    };
+                    Object[][] dataValuesX={
+                            {"Access",60,30},
+                            {"Consultation",40,10},
+                            {"Order",20,5},
+                            {"Click",80,50},
+                            {"Display",100,80},
+                        };
 
-            String[] legendDataName=new String[dataValuesX.length];
-            for (int i = 0; i < dataValuesX.length; i++) {
-                    legendDataName[i]=dataValuesX[i][0].toString();
-                }
-            
-            String chartTitle="Grafico de embudo";
-            String[] serieCategoryName={"Esperado", "Real"};
-            String[] serieLabelPosition={"outside", "inside"};
-            double[] serieItemStyleOpacy={0.7, 0.5};
-            
-            String[] serieLabelFormatter={"{b}", "{c}%"};
-            String[] serieSort={"ascending", "ascending"};/*ascending,descending*/
-            String[] serieSortX={"ascending", "descending"};/*ascending,descending*/  
-            
-            
-            request.getSession().setAttribute("dataValues", dataValuesX);
-            request.getSession().setAttribute("chartTitle", chartTitle);
-            request.getSession().setAttribute("legendDataName", legendDataName);
-            request.getSession().setAttribute("serieCategoryName", serieCategoryName);
-            request.getSession().setAttribute("serieSort", serieSort);
-            request.getSession().setAttribute("serieSortX", serieSortX);
-            
-            response.sendRedirect("web/Funnel.jsp");
+                String[] legendDataName=new String[dataValuesX.length];
+                for (int i = 0; i < dataValuesX.length; i++) {
+                        legendDataName[i]=dataValuesX[i][0].toString();
+                    }
+
+                String chartTitle="Grafico de embudo";
+                String[] serieCategoryName={"Esperado", "Real"};
+                String[] serieLabelPosition={"outside", "inside"};
+                double[] serieItemStyleOpacy={0.7, 0.5};
+
+                String[] serieLabelFormatter={"{b}", "{c}%"};
+                String[] serieSort={"ascending", "ascending"};/*ascending,descending*/
+                String[] serieSortX={"ascending", "descending"};/*ascending,descending*/  
+
+
+                request.getSession().setAttribute("dataValues", dataValuesX);
+                request.getSession().setAttribute("chartTitle", chartTitle);
+                request.getSession().setAttribute("legendDataName", legendDataName);
+                request.getSession().setAttribute("serieCategoryName", serieCategoryName);
+                request.getSession().setAttribute("serieSort", serieSort);
+                request.getSession().setAttribute("serieSortX", serieSortX);
+
+                response.sendRedirect("web/Funnel.jsp");
                 }break;
+                case 3:{
+                ReportDataDao dao=new ReportDataDao();
+                List<Map<String, Object>> data=dao.reporteAlumno();
+                
+                int tamano=data.size();
+                System.out.println("VER:"+tamano);
+                double[] dataValues1=new double[tamano];        
+                double[] dataValues2=new double[tamano];        
+                double[] dataValues3=new double[tamano];        
+                double[] dataValues4=new double[tamano];        
+                int contador=0, contAnho=0;
+                String[] legendDataName=new String[4];
+                String[] ejeDataX=new String[tamano];
+                for (int i=0; i<data.size(); i++) {
+                    System.out.print(" " + data.get(i).get("zona"));
+                    if(contador==0){
+                        legendDataName[contAnho++]=data.get(i).get("anho").toString(); 
+                        legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data.get(i).get("anho").toString())-1); 
+                        legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data.get(i).get("anho").toString())-2); 
+                        legendDataName[contAnho++]=String.valueOf(Integer.parseInt(data.get(i).get("anho").toString())-3); 
+                    }
+                 dataValues1[contador]=Double.parseDouble(data.get(i).get("cantidad").toString());           
+                 dataValues2[contador]=Double.parseDouble(data.get(i).get("cantidad2").toString());          
+                 dataValues3[contador]=Double.parseDouble(data.get(i).get("cantidad3").toString());           
+                 dataValues4[contador]=Double.parseDouble(data.get(i).get("cantidad4").toString());           
+                 ejeDataX[contador]=data.get(i).get("zona").toString();         
+                 contador=contador+1;                     
+                }           
+     
+                    Object[] dataValues={dataValues1,dataValues2,dataValues3,dataValues4};         
+                    String[] ejeNameXY={"Eje X","Eje Y"};           
+                    boolean[] seriesMarkPointMinMax ={false,false,false,false};
+                    boolean[] seriesMarkLineMedia ={false,false,false,false};              
+                    String[] seriesStackName ={"one","two","tre","for"};            
+                    String echartsOriented="horizontal";/*vertical,horizontal*/        
+                    String chartTitle="Afluencia de Turistas por Zonas";
+                    request.getSession().setAttribute("dataValues", dataValues);
+                    request.getSession().setAttribute("chartTitle", chartTitle);
+                    request.getSession().setAttribute("legendDataName", legendDataName);
+                    request.getSession().setAttribute("ejeDataX", ejeDataX);
+                    request.getSession().setAttribute("ejeNameXY", ejeNameXY);
+                    request.getSession().setAttribute("seriesMarkPointMinMax", seriesMarkPointMinMax);
+                    request.getSession().setAttribute("seriesMarkLineMedia", seriesMarkLineMedia);
+                    request.getSession().setAttribute("seriesStackName", seriesStackName);
+                    request.getSession().setAttribute("echartsOriented", echartsOriented);
+
+
+                    response.sendRedirect("web/Bar.jsp");              
+                
+                } break;
         }
         }
     }

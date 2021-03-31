@@ -42,6 +42,12 @@
           <li class="nav-item active">
             <a class="btn btn-outline-secondary my-2 my-sm-0" href="<%=request.getContextPath()%>/bar">Bar</a>
           </li>
+          <li class="nav-item active">
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="<%=request.getContextPath()%>/pru">Bar2</a>
+          </li>
+          <li class="nav-item active">
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="<%=request.getContextPath()%>/pru2">Bar2.1</a>
+          </li>          
           <li class="nav-item">
             <a class="btn btn-outline-secondary my-2 my-sm-0" href="<%=request.getContextPath()%>/funnel">Funnel</a>
           </li>
