@@ -35,7 +35,7 @@ Step 4: Then Add the following dependency.
 	<dependency>
 	    <groupId>com.github.davidmp</groupId>
 	    <artifactId>EchartsTag</artifactId>
-	    <version>1.4</version>
+	    <version>1.6</version>
 	</dependency>
 ```
 Step 5: Inside the Java Resources folder create a properties file with the following name syscenterlife.properties and inside it place the following content:
