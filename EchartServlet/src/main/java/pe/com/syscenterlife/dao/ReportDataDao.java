@@ -23,7 +23,7 @@ public class ReportDataDao extends DBConn{
   
     Logger logeeri=Logger.getLogger(ReportDataDao.class) ;
 
-    public List<Map<String, Object>> reporteAlumno() {//list:return del mismo tipo
+    public List<Map<String, Object>> reporteTurismoEntrada() {//list:return del mismo tipo
             List<Map<String, Object>> reporte = new ArrayList();
             try {
                 getConexionDB();

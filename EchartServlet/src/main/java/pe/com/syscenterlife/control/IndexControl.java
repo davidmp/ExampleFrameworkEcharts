@@ -146,7 +146,7 @@ public class IndexControl extends HttpServlet {
                 }break;
                 case 3:{
                 ReportDataDao dao=new ReportDataDao();
-                List<Map<String, Object>> data=dao.reporteAlumno();
+                List<Map<String, Object>> data=dao.reporteTurismoEntrada();
                 
                 int tamano=data.size();
                 System.out.println("VER:"+tamano);
