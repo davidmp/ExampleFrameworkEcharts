@@ -85,3 +85,20 @@ Results
 ![](pprincipal-jsp2.png)
 
 ![](pprincipal-jsp3.png)
+
+## Citation
+
+[EchartsTag para Generación de Charts usando Taglib](https://revistas.ulima.edu.pe/index.php/Interfases/article/view/5394)
+
+```BibTeX
+@article{Mamani-Pari_Escobedo-Quispe_2021, 
+title={EchartsTag para Generación de Charts usando Taglib}, 
+url={https://revistas.ulima.edu.pe/index.php/Interfases/article/view/5394}, 
+DOI={10.26439/interfases2021.n014.5394}, 
+number={014}, 
+journal={Interfases}, 
+author={Mamani-Pari, David and Escobedo-Quispe, Richart Smith}, 
+year={2021}, 
+month={oct.}, 
+pages={e5394} }
+```
